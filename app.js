@@ -1,21 +1,20 @@
-var express= require("express");
-var app= express();
-app.set("json space",5);
-dotenv.config({path:"./.env"})
-let response={
-    framework:"express.js",
-    langauges:"javascript"
-}
-app.get("/",(req,res)=>{
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
 
-    response.message= "express";
-    res.status(200).json(response);
-})
-app.get("/data",(req,res)=>{
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
 
-    response.message= [1,2,3,4,5,6];
-    res.status(200).json(response);
-})
-app.listen(process.env.PORT || 1000,()=>{
-    console.log("port 1000")
-})
+var app = express();
+
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+
+module.exports = app;

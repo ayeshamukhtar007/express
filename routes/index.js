@@ -16,4 +16,13 @@ router.post('/addteacher', function(req, res, next) {
       }, (err) => next(err))
       .catch((err) => next(err));
 });
+router.get('/teachers', function(req, res, next) {
+  Teacher.find().sort('name').exec(function(error, results) {
+      if (error) {
+          return next(error);
+      }
+      // Respond with valid data
+      res.json(results);
+  });
+});
 module.exports = router;

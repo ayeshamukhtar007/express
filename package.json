@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "node ./bin/www"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -16,7 +16,6 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.4.4",
     "mongoose-ip-address": "^0.0.6",
-    "morgan": "~1.9.1",
-    "nodemon": "^2.0.19"
+    "morgan": "~1.9.1"
   }
 }

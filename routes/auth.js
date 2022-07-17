@@ -49,7 +49,7 @@ router.post('/login', async (req, res) => {
             {
                 id: user._id
             },
-            process.env.JWT_SEC,
+            "MYNAMEISAYESHA",
             { expiresIn: "3d" }
         );
   
@@ -61,7 +61,7 @@ router.post('/login', async (req, res) => {
     }
     }
     else{
-                res.status(500).json(err);
+          res.status(500).json(err);
 
     }
 });

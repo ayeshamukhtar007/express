@@ -26,26 +26,19 @@ router.post("/register", async (req, res) => {
 //LOGIN
 
 router.post('/login', async (req, res) => {
-    console.log(req.body);
+   
     if(req.body!=null){
-    const {email,password}=req.body;
-    console.log(req.body);
+  
     try{
         const user = await User.findOne(
             {
-                email: email
+                email: req.body.email
             }
            
         );
         
         if(!user) return res.status(401).json("Wrong credentials!");
-        // const hashedPassword = CryptoJS.AES.decrypt(
-        //     user.password,
-        //     process.env.PASS_SEC
-        // );
-
-
-        // const originalPassword =hashedPassword.toString(CryptoJS.enc.Utf8);
+      
         
         const isMatch=await bcrypt.compare(req.body.password,user.password);
        

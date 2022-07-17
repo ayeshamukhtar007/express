@@ -57,11 +57,11 @@ router.post('/login', async (req, res) => {
         res.status(200).json({...others,accessToken,message:"login done"});
 
     }catch(err){
-        res.status(500).json(err);
+        res.status(500).json({message:"login fail"});
     }
     }
     else{
-          res.status(500).json(err);
+          res.status(500).json({message:"login fail1"});
 
     }
 });

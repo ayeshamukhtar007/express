@@ -49,7 +49,7 @@ router.post('/login', async (req, res) => {
             {
                 id: user._id
             },
-            "MYNAMEISAYESHA",
+            process.env.JWT_SEC,
             { expiresIn: "3d" }
         );
   

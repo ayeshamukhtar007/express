@@ -25,45 +25,45 @@ router.post("/register", async (req, res) => {
 
 //LOGIN
 
-router.post('/login', async (req, res) => {
+// router.post('/login', async (req, res) => {
    
-    if(req.body!=null){
+//     if(req.body!=null){
   
-    try{
-        const user = await User.findOne(
-            {
-                email: req.body.email
-            }
+//     try{
+//         const user = await User.findOne(
+//             {
+//                 email: req.body.email
+//             }
            
-        );
+//         );
         
-        if(!user) return res.status(401).json("Wrong credentials!");
+//         if(!user) return res.status(401).json("Wrong credentials!");
       
         
-        const isMatch=await bcrypt.compare(req.body.password,user.password);
+//         const isMatch=await bcrypt.compare(req.body.password,user.password);
        
-        if(!isMatch) return res.status(401).json("Wrong credentials!");
+//         if(!isMatch) return res.status(401).json("Wrong credentials!");
         
 
-        const accessToken =jwt.sign(
-            {
-                id: user._id
-            },
-            "MYNAMEISAYESHA",
-            { expiresIn: "3d" }
-        );
+//         const accessToken =jwt.sign(
+//             {
+//                 id: user._id
+//             },
+//             "MYNAMEISAYESHA",
+//             { expiresIn: "3d" }
+//         );
   
-        const { password, ...others } = user._doc;  
-        res.status(200).json({...others, accessToken,message:"login done"});
+//         const { password, ...others } = user._doc;  
+//         res.status(200).json({...others, accessToken,message:"login done"});
 
-    }catch(err){
-        res.status(500).json(err);
-    }
-    }
-    else{
-          res.status(500).json(err);
+//     }catch(err){
+//         res.status(500).json(err);
+//     }
+//     }
+//     else{
+//           res.status(500).json(err);
 
-    }
-});
+//     }
+// });
 
 module.exports = router;

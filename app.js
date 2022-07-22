@@ -4,7 +4,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
 const dotenv = require("dotenv");
-
+const cameraRoute = require("./routes/camera");
 const authRoute = require("./routes/auth");
 const cors = require("cors");
 
@@ -25,6 +25,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use("/api/auth", authRoute);
-
+app.use("/api/camera", cameraRoute);
 
 module.exports = app;

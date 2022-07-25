@@ -47,7 +47,7 @@ router.put("/updateCamera/:cid/:uid", verifyTokenAndAuthorization, async (req, r
               mode:req.body.mode,
             }
           );
-          res.status(200).json(updatedCamera);
+          res.status(200).json({message:"updated successfully"});
         } catch (err) {
           res.status(500).json(err);
         }

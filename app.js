@@ -5,7 +5,7 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 const dotenv = require("dotenv");
 const cameraRoute = require("./routes/camera");
-const useraRoute = require("./routes/user");
+const userRoute = require("./routes/user");
 const authRoute = require("./routes/auth");
 const cors = require("cors");
 
@@ -27,5 +27,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use("/api/auth", authRoute);
 app.use("/api/camera", cameraRoute);
-app.use("/api/user", cameraUser);
+app.use("/api/user", userRoute);
 module.exports = app;

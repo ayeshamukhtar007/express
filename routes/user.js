@@ -27,7 +27,16 @@ console.log(results);
 res.status(200).json({...others, accessToken});
 });
   })
-
+  router.get('/GetUser/:uid',verifyTokenAndAuthorization,async (req, res) => {
+    User.findOne({_id:req.params.uid}).exec(function(error, results) {
+         if (error) {
+             throw(error);
+         }
+         console.log(results)
+         res.status(200).json(results);
+   
+     });
+});
 router.post("/buyservice/:uid/:sid",verifyTokenAndAuthorization, async (req, res) => {
 
   // if(!await BuyedService.findOne(req.body)){

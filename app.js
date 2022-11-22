@@ -7,6 +7,7 @@ const dotenv = require("dotenv");
 const cameraRoute = require("./routes/camera");
 const userRoute = require("./routes/user");
 const authRoute = require("./routes/auth");
+const alertRoute = require("./routes/alert");
 const cors = require("cors");
 
 
@@ -27,5 +28,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use("/api/auth", authRoute);
 app.use("/api/camera", cameraRoute);
+app.use("/api/alert", alertRoute);
 app.use("/api/user", userRoute);
 module.exports = app;

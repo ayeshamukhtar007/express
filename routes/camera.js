@@ -8,6 +8,24 @@ const {
   } = require("./verifyToken");
   
 //Add Camera Details
+router.put("/updateCamera/:uid", async (req, res) => {
+console.log("here")
+try {
+      const updatedCamera = await Camera.UpdateMany(
+        {
+           { "user": { $gt: req.params.uid } 
+        },
+        {
+          $set:{
+          mode:req.body.mode,
+          }
+        }
+      );
+      res.status(200).json(updatedCamera);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+});
 router.post("/addcamera/:uid",verifyTokenAndAuthorization, async (req, res) => {  
   try{
      const ipAddress=ip.toBuffer(req.body.ip_address);

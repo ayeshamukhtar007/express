@@ -11,14 +11,12 @@ const {
 router.put("/updateCamera/:uid", async (req, res) => {
 console.log("here")
 try {
-      const updatedCamera = await Camera.UpdateMany(
+      const updatedCamera = await Camera.findOneAndUpdate(
         {
-           { "user": { $gt: req.params.uid } 
+          user:req.params.uid
         },
         {
-          $set:{
           mode:req.body.mode,
-          }
         }
       );
       res.status(200).json(updatedCamera);

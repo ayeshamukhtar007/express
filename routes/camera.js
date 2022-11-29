@@ -6,7 +6,24 @@ const {
     verifyTokenAndAuthorization,
     verifyTokenAndAdmin,
   } = require("./verifyToken");
-  
+  router.get('/CountActive/:uid',verifyTokenAndAuthorization,async (req, res) => {
+  Camera.find({user: req.params.uid } &&{mode:'active'}).count().exec(function(error, results) {
+       if (error) {
+           return next(error);
+       }
+       
+       res.status(200).json(results);
+   })  ;
+ });
+router.get('/CountSlient/:uid',verifyTokenAndAuthorization,async (req, res) => {
+  Camera.find({user: req.params.uid } &&{mode:'silent'}).count().exec(function(error, results) {
+       if (error) {
+           return next(error);
+       }
+       
+       res.status(200).json(results);
+   })  ;
+ });
 //Add Camera Details
 router.put("/updateCamera/:uid", async (req, res) => {
 console.log("here")

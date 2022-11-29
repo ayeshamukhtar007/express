@@ -13,7 +13,7 @@ const {
        }
        
        res.status(200).json(results);
-   })  ;
+   }) 
  });
 router.get('/CountSlient/:uid',verifyTokenAndAuthorization,async (req, res) => {
   Camera.find({user: req.params.uid } &&{mode:'silent'}).count().exec(function(error, results) {

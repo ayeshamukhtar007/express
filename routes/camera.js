@@ -84,7 +84,7 @@ router.post("/addcamera/:uid",verifyTokenAndAuthorization, async (req, res) => {
        } catch (err) {
            res.status(500).json({message:"failed"});
        }
-  
+ }
  
  );
 //UPDATE

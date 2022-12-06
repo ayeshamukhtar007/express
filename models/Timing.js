@@ -3,7 +3,7 @@ const TimingSchema = new mongoose.Schema(
   {
 
     activeStart: { 
-      type:string
+      type:String
       
      
     },       
@@ -20,4 +20,4 @@ const TimingSchema = new mongoose.Schema(
   },
   { timestamps: true }
 )
-module.exports = mongoose.model("Timing",timingSchema);
+module.exports = mongoose.model("Timing",TimingSchema);

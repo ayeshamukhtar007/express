@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const Camera = require("../models/Camera");
-const Timings = require("../models/Timings");
+const Timings = require("../models/Timing");
 var ip = require("ip"); 
 const {
     verifyToken,

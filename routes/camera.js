@@ -72,7 +72,7 @@ router.post("/addcamera/:uid",verifyTokenAndAuthorization, async (req, res) => {
  
   });
  router.post("/addmodeTimings/:uid",verifyTokenAndAuthorization, async (req, res) => {  
- =
+ 
     
     
     

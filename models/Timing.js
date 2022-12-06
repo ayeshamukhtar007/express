@@ -20,4 +20,4 @@ const TimingSchema = new mongoose.Schema(
   },
   { timestamps: true }
 )
-module.exports = mongoose.model("Timings",timingSchema);
+module.exports = mongoose.model("Timing",timingSchema);

@@ -76,15 +76,24 @@ router.post("/addcamera/:uid",verifyTokenAndAuthorization, async (req, res) => {
     
     
     
-       const newTime = new Timing(req.body);
        
-       try {
-           const savedCamera=await newTime.save();
-           res.status(200).json({message:"set successfully"}); 
-       } catch (err) {
-           res.status(500).json({message:"failed"});
-       }
- }
+       
+          const newTime = new Timing(
+            {activeStart:req.body.activeStart,
+              activeEnd:req.body.activeEnd,
+              slientStart:req.body.slientStart,
+              slientEnd:req.body.slientEnd,
+            }
+          );
+          
+          try {
+              const savedCamera=await newTime.save();
+              res.status(200).json(savedCamera); 
+          } catch (err) {
+              res.status(500).json({message:"failed"});
+          }
+     
+        }
  
  );
 //UPDATE
